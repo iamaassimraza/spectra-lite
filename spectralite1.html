@@ -1,0 +1,565 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Bootstrap 5 CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+
+<style>
+    /* Root variables for fonts and colors */
+    :root {
+        --font-family: 'Poppins', sans-serif;
+        --font-size-base: 16px;
+        --font-size-small: clamp(14px, 1vw, 16px);
+        /* Small text, e.g., captions */
+        --font-size-medium: clamp(18px, 1.5vw, 24px);
+        /* Medium text, e.g., body text */
+        --font-size-large: clamp(33px, 2vw, 102px);
+        /* Larger text, e.g., subheadings */
+        --font-size-xl: clamp(28px, 2.5vw, 64px);
+        /* Extra-large text, e.g., headings */
+        --font-size-xxl: clamp(33px, 6vw, 102px);
+        /* Hero headings */
+
+
+        --font-weight-light: 300;
+        --font-weight-normal: 400;
+        --font-weight-bold: 600;
+        --line-height-small: 1.2;
+        --line-height-base: 1.5;
+        --line-height-large: 1.8;
+        --letter-spacing-normal: 0;
+        --letter-spacing-wide: 0.5px;
+        --color-primary: #199ee3;
+        --color-secondary: #272727;
+        --color-light: #fff;
+        --color-dark: #000;
+    }
+
+    /* Global Reset and Base Styles */
+    body {
+        font-family: var(--font-family);
+        font-size: var(--font-size-base);
+        line-height: var(--line-height-base);
+        letter-spacing: var(--letter-spacing-normal);
+        margin: 0;
+        padding: 0;
+        color: var(--color-dark);
+        background-color: var(--color-light);
+    }
+
+    /* Heading Styles */
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: var(--font-family);
+        margin: 0;
+        line-height: var(--line-height-small);
+        letter-spacing: var(--letter-spacing-wide);
+        font-weight: var(--font-weight-bold);
+    }
+
+    h1 {
+        font-size: var(--font-size-xxl);
+        line-height: var(--line-height-large);
+    }
+
+    h2 {
+        font-size: var(--font-size-xl);
+        line-height: var(--line-height-large);
+    }
+
+    h3 {
+        font-size: var(--font-size-large);
+        line-height: var(--line-height-base);
+    }
+
+    h4 {
+        font-size: var(--font-size-medium);
+        line-height: var(--line-height-base);
+    }
+
+    h5 {
+        font-size: var(--font-size-small);
+        line-height: var(--line-height-small);
+    }
+
+    h6 {
+        font-size: var(--font-size-small);
+        font-weight: var(--font-weight-normal);
+        line-height: var(--line-height-small);
+    }
+
+    /* Paragraphs and Lists */
+    p,
+    ul,
+    ol,
+    li {
+        font-size: var(--font-size-medium);
+        line-height: var(--line-height-base);
+        font-weight: var(--font-weight-normal);
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Buttons and Inputs */
+    button,
+    input,
+    textarea {
+        font-family: var(--font-family);
+        font-size: var(--font-size-medium);
+        font-weight: var(--font-weight-bold);
+        line-height: var(--line-height-base);
+        letter-spacing: var(--letter-spacing-normal);
+    }
+
+    /* Media Queries for Fine Tuning */
+    @media (max-width: 768px) {
+        h1 {
+            font-size: var(--font-size-xl);
+        }
+
+        h2 {
+            font-size: var(--font-size-large);
+        }
+
+        h3 {
+            font-size: var(--font-size-medium);
+        }
+
+        p,
+        ul,
+        ol,
+        li {
+            font-size: var(--font-size-small);
+        }
+
+        button,
+        input {
+            font-size: var(--font-size-small);
+        }
+    }
+
+    @media (max-width: 576px) {
+        h1 {
+            font-size: var(--font-size-large);
+        }
+
+        h2 {
+            font-size: var(--font-size-medium);
+        }
+
+        h3 {
+            font-size: var(--font-size-small);
+        }
+
+        p,
+        ul,
+        ol,
+        li {
+            font-size: var(--font-size-small);
+        }
+
+        button,
+        input {
+            font-size: var(--font-size-small);
+        }
+    }
+
+
+    /* Override Hero Banner styles for responsive images */
+    .Hero-Banner img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        /* Ensures images fill the area proportionally */
+    }
+
+    /* Ensure slider height adjusts for different screens */
+    .slider {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        /* overflow: hidden;  */
+        background-color: red;
+    }
+
+
+    .Hero-Banner-Text {
+        position: absolute;
+        top: 15%;
+        left: 35px;
+        width: 100%;
+        z-index: 1000;
+    }
+
+
+    .hero-tagline {
+        width: 35%;
+        font-size: var(--font-size-medium);
+        font-weight: var(--font-weight-light);
+        color: var(--color-light);
+        line-height: var(--line-height-small);
+        text-transform: uppercase;
+        font-style: italic;
+        margin: 0;
+    }
+
+    .hero-heading {
+        font-style: italic;
+        font-size: var(--font-size-xxl);
+        font-weight: var(--font-weight-bold);
+        color: var(--color-primary);
+        line-height: var(--line-height-large);
+        text-transform: uppercase;
+        margin: 0;
+    }
+
+    .hero-subheading {
+        text-transform: capitalize;
+        width: 60%;
+        padding: 10px 2%;
+        font-size: var(--font-size-base);
+        font-weight: var(--font-weight-normal);
+        color: var(--color-light);
+        line-height: var(--line-height-base);
+        margin: 0;
+        background: linear-gradient(to right, #151515, transparent);
+
+    }
+
+
+    /* Adjust slider images for smaller devices */
+    @media (max-width: 768px) {
+        .slider {
+            height: auto;
+            /* Allow content to flow naturally */
+        }
+
+        .Hero-Banner img {
+            height: auto;
+            /* Maintain aspect ratio */
+            object-fit: contain;
+            /* Avoid cropping on small screens */
+        }
+
+        .Hero-Banner-Text {
+            top: 5%;
+            left: 5%;
+            text-align: left;
+            width: 100%;
+        }
+
+        .hero-heading {
+            font-size: var(--font-size-xl);
+            line-height: 1.1;
+        }
+
+        .hero-subheading {
+            font-size: var(--font-size-medium);
+            line-height: 1.4;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .Hero-Banner-Text {
+            top: 3%;
+            left: 5%;
+            width: 100%;
+        }
+
+        .hero-tagline {
+            font-size: var(--font-size-small);
+        }
+
+        .hero-heading {
+            font-size: var(--font-size-large);
+            line-height: 1.1;
+        }
+
+        .hero-subheading {
+            font-size: var(--font-size-small);
+            line-height: 1.3;
+        }
+    }
+</style>
+
+<!-- Hero Banner 1 -->
+
+<div class="slider">
+    <div class="Banner-btn">
+        <button id="goToContactUsForm">Contact Us</button>
+    </div>
+    <div class="Hero-Banner-Text">
+        <p class="hero-tagline">World first Handlebar-Integrated Bike light system</p>
+        <h1 class="hero-heading">Spectralite</h1>
+        <p class="hero-subheading">A Patent-Protected Handlebar-Integrated 3 in 1 Bike Lights System With Front/Rear
+            Lights And A
+            Ground Laser Safety Zone.</p>
+    </div>
+    <img src="https://cdn.shopify.com/s/files/1/0795/1813/8714/files/1.jpg?v=1736329788" alt="Hero Banner 1">
+    <div class="slider-images">
+        <div class="Hero-Banner">
+            <img src="https://cdn.shopify.com/s/files/1/0795/1813/8714/files/1.jpg?v=1736329788" alt="Hero Banner 1">
+        </div>
+        <div class="Hero-Banner">
+            <img src="https://cdn.shopify.com/s/files/1/0795/1813/8714/files/4.jpg?v=1736329789" alt="Hero Banner 2">
+        </div>
+        <div class="Hero-Banner">
+            <img src="https://cdn.shopify.com/s/files/1/0795/1813/8714/files/BIke_Evolution-27_1_1.png?v=1735557659"
+                alt="Hero Banner 3">
+        </div>
+    </div>
+    <div class="slider-dots"></div>
+
+</div>
+
+<body>
+
+
+</html>
+
+
+
+<!-- Bootstrap 5 JS (Optional, for Bootstrap components like dropdowns, modals, etc.) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const elementsToAnimate = document.querySelectorAll("  .feature-item,   .footer-lite"); // Add all elements that should be animated
+
+        // Create an IntersectionObserver
+        const observer = new IntersectionObserver(
+            function (entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Add the class to trigger the animation when the element is in view
+                        entry.target.classList.add("animate-on-scroll"); // Add the animation class
+                        observer.unobserve(entry.target); // Stop observing once the element is in view
+                    }
+                });
+            },
+            { threshold: 0.5 } // Trigger when 50% of the element is visible
+        );
+
+        // Observe each element
+        elementsToAnimate.forEach(element => {
+            observer.observe(element);
+        });
+    });
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const backDarkElement = document.querySelector('.back-dark');
+        const gridTwoElement = document.querySelector('.Grid-two');
+        const textDivElement = document.querySelector('.text-div');
+
+        // Intersection Observer to detect when .back-dark is in the viewport
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Add 'animate' class to trigger the animation
+                    entry.target.classList.add('animate');
+                    observer.unobserve(entry.target); // Stop observing once the animation is triggered
+                }
+            });
+        }, { threshold: 0.5 }); // Trigger when 50% of the div is in view
+
+        // Start observing the .back-dark element
+        observer.observe(backDarkElement);
+        observer.observe(gridTwoElement);
+        observer.observe(textDivElement);
+
+    });
+
+
+</script>
+
+<script>
+    // General Slider Variables
+    const slider = document.querySelector('.slider');
+    const sliderImages = document.querySelector('.slider-images');
+    const slides = document.querySelectorAll('.Hero-Banner');
+    const sliderDots = document.querySelector('.slider-dots');
+
+    let currentIndex = 1; // Start from 1 due to cloning
+    let isDragging = false;
+    let startPosition = 0;
+    let currentTranslate = 0;
+    let previousTranslate = 0;
+    let animationID;
+    let autoMove;
+
+    // Clone first and last slides
+    const firstClone = slides[0].cloneNode(true);
+    const lastClone = slides[slides.length - 1].cloneNode(true);
+
+    firstClone.id = 'first-clone';
+    lastClone.id = 'last-clone';
+
+    sliderImages.appendChild(firstClone);
+    sliderImages.insertBefore(lastClone, slides[0]);
+
+    const updatedSlides = document.querySelectorAll('.Hero-Banner');
+    const updatedTotalSlides = updatedSlides.length;
+
+    // Set initial position
+    sliderImages.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+    // Create dot indicators dynamically
+    for (let i = 0; i < slides.length; i++) {
+        const dot = document.createElement('button');
+        dot.setAttribute('data-index', i);
+        dot.addEventListener('click', () => goToSlide(i + 1));
+        sliderDots.appendChild(dot);
+    }
+
+    function updateDots() {
+        const dots = sliderDots.querySelectorAll('button');
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentIndex - 1);
+        });
+    }
+
+    function changeSlide(direction) {
+        currentIndex += direction;
+        sliderImages.style.transition = 'transform 0.5s ease-out';
+        sliderImages.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+        // Infinite loop handling
+        if (currentIndex === updatedTotalSlides - 1) {
+            setTimeout(() => {
+                sliderImages.style.transition = 'none';
+                currentIndex = 1;
+                sliderImages.style.transform = `translateX(-${currentIndex * 100}%)`;
+            }, 300);
+        } else if (currentIndex === 0) {
+            setTimeout(() => {
+                sliderImages.style.transition = 'none';
+                currentIndex = updatedTotalSlides - 2;
+                sliderImages.style.transform = `translateX(-${currentIndex * 100}%)`;
+            }, 300);
+        }
+
+        updateDots();
+        resetAutoMove();
+    }
+
+    function goToSlide(index) {
+        currentIndex = index;
+        sliderImages.style.transition = 'transform 0.1.5s ease-out';
+        sliderImages.style.transform = `translateX(-${currentIndex * 100}%)`;
+        updateDots();
+        resetAutoMove();
+    }
+
+    // Auto-move slides every 3 seconds
+    function startAutoMove() {
+        autoMove = setInterval(() => changeSlide(1), 4000);
+    }
+
+    function resetAutoMove() {
+        clearInterval(autoMove);
+        startAutoMove();
+    }
+
+    // Drag Functions
+    slider.addEventListener('mousedown', dragStart);
+    slider.addEventListener('touchstart', dragStart);
+
+    slider.addEventListener('mousemove', dragMove);
+    slider.addEventListener('touchmove', dragMove);
+
+    slider.addEventListener('mouseup', dragEnd);
+    slider.addEventListener('mouseleave', dragEnd);
+    slider.addEventListener('touchend', dragEnd);
+
+    function dragStart(event) {
+        isDragging = true;
+        startPosition = getPositionX(event);
+        sliderImages.style.transition = 'none';
+        animationID = requestAnimationFrame(animation);
+    }
+
+    function dragMove(event) {
+        if (!isDragging) return;
+        const currentPosition = getPositionX(event);
+        currentTranslate = previousTranslate + currentPosition - startPosition;
+        sliderImages.style.transform = `translateX(${currentTranslate}px)`;
+    }
+
+    function dragEnd() {
+        cancelAnimationFrame(animationID);
+        isDragging = false;
+
+        const moveBy = currentTranslate - previousTranslate;
+
+        if (moveBy < -50 && currentIndex < updatedTotalSlides - 1) {
+            currentIndex++;
+        } else if (moveBy > 50 && currentIndex > 0) {
+            currentIndex--;
+        }
+
+        setPositionByIndex();
+    }
+
+    function getPositionX(event) {
+        return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
+    }
+
+    function animation() {
+        sliderImages.style.transform = `translateX(${currentTranslate}px)`;
+        if (isDragging) requestAnimationFrame(animation);
+    }
+
+    function setPositionByIndex() {
+        currentTranslate = -currentIndex * slider.offsetWidth;
+        previousTranslate = currentTranslate;
+        sliderImages.style.transition = 'transform 0.1.5s ease-out';
+        sliderImages.style.transform = `translateX(${currentTranslate}px)`;
+
+        // Infinite loop handling for drag
+        if (updatedSlides[currentIndex].id === 'last-clone') {
+            setTimeout(() => {
+                sliderImages.style.transition = 'none';
+                currentIndex = 1;
+                setPositionByIndex();
+            }, 300);
+        } else if (updatedSlides[currentIndex].id === 'first-clone') {
+            setTimeout(() => {
+                sliderImages.style.transition = 'none';
+                currentIndex = updatedTotalSlides - 2;
+                setPositionByIndex();
+            }, 300);
+        }
+    }
+
+    // Prevent default image drag behavior
+    updatedSlides.forEach(slide => {
+        slide.addEventListener('dragstart', (e) => e.preventDefault());
+    });
+
+    // Adjust slider on window resize
+    window.addEventListener('resize', setPositionByIndex);
+
+    // Initialize
+    updateDots();
+    startAutoMove();
+
+    document.getElementById('goToContactUsForm').addEventListener('click', function () {
+        alert();
+        const targetSection = document.getElementById('contactUsForm');
+        targetSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start' // Align to the top of the section
+        });
+    });
+</script>
