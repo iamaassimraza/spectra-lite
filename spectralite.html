@@ -170,13 +170,11 @@
         .column-grid>div {
             display: flex;
             align-items: center;
-            /* This will center the content vertically inside each div */
             justify-content: center;
         }
 
         .back-dark {
             flex: 1;
-            /* This will make the back-dark div take available space */
             position: relative;
         }
 
@@ -185,9 +183,7 @@
             text-transform: uppercase;
             font-style: italic;
             position: absolute;
-            /* top: 49%; */
             left: 0px;
-            /* transform: translate(-50%, -50%); */
             font-size: 180px;
             letter-spacing: 5px;
             font-weight: 500;
@@ -919,6 +915,7 @@
         /* Core Variables for Responsiveness */
         :root {
             --font-family: 'Poppins', sans-serif;
+            --font-size-base: clamp(16px 1vw 18px);
             --font-size-small: clamp(14px, 1vw, 16px);
             --font-size-medium: clamp(18px, 1.5vw, 24px);
             --font-size-large: clamp(24px, 3vw, 48px);
@@ -975,7 +972,7 @@
         .Hero-Banner-Text {
             position: absolute;
             top: 50%;
-            left: 35px;
+            left: 20px;
             transform: translateY(-50%);
             z-index: 10;
             color: #fff;
@@ -1008,8 +1005,10 @@
             line-height: var(--line-height-base);
             margin: 0;
             background: linear-gradient(to right, #151515, transparent);
-            padding: 10px 0;
+            padding: 10px 25px;
             text-transform: capitalize;
+            position: relative;
+            left:-20px
         }
 
         .Banner-btn {
