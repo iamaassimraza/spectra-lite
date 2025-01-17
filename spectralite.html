@@ -194,40 +194,60 @@
             opacity: 0;
         } */
         .text-container {
-    position: relative; /* Enables positioning of child elements relative to this container */
-    text-align: center; /* Center-aligns the text */
-    padding: 120px 0px; /* Optional: Add padding for spacing */
-}
-.sectionHeading{
-    font-size: var(--font-size-large);
-    text-align: center;
-}
-.background-text {
-    position: absolute; /* Position relative to the container */
-    top: 50%; /* Center vertically */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%); /* Fine-tune centering */
-    font-size: var(--font-size-xxl); /* Large, responsive font size */
-    color: transparent; /* Make the text transparent */
-    -webkit-text-stroke: 0.7px #333; /* Add an outline color */
-    z-index: 1; /* Place it behind the foreground text */
-    font-weight: var(--font-weight-xbold); /* Ensure the text stands out */
-    text-transform: uppercase; /* Optional: Transform text to uppercase */
-    white-space: nowrap; /* Prevent text wrapping */
-    line-height: var(--line-height-xl);
-    font-style: italic;
-    letter-spacing: 5px;
-    /* pointer-events: none; */
-    
-}
+            position: relative;
+            /* Enables positioning of child elements relative to this container */
+            text-align: center;
+            /* Center-aligns the text */
+            padding: 120px 0px;
+            /* Optional: Add padding for spacing */
+        }
 
-.foreground-text {
-    position: relative; /* Allows stacking on top of the background text */
-    font-size: var(--font-size-large); /* Smaller, responsive font size */
-    color: var(--color-primary); /* Set the desired color for the small text */
-    font-weight: var(--font-weight-normal); /* Make it stand out */
-    z-index: 2; /* Ensure it's on top of the background text */
-}
+        .sectionHeading {
+            font-size: var(--font-size-large);
+            text-align: center;
+        }
+
+        .background-text {
+            position: absolute;
+            /* Position relative to the container */
+            top: 50%;
+            /* Center vertically */
+            left: 50%;
+            /* Center horizontally */
+            transform: translate(-50%, -50%);
+            /* Fine-tune centering */
+            font-size: var(--font-size-xxl);
+            /* Large, responsive font size */
+            color: transparent;
+            /* Make the text transparent */
+            -webkit-text-stroke: 0.3px #999999;
+            /* Add an outline color */
+            z-index: 1;
+            /* Place it behind the foreground text */
+            font-weight: var(--font-weight-xbold);
+            /* Ensure the text stands out */
+            text-transform: uppercase;
+            /* Optional: Transform text to uppercase */
+            white-space: nowrap;
+            /* Prevent text wrapping */
+            line-height: var(--line-height-xl);
+            font-style: italic;
+            letter-spacing: 5px;
+            opacity: 0.5;
+        }
+
+        .foreground-text {
+            position: relative;
+            /* Allows stacking on top of the background text */
+            font-size: var(--font-size-large);
+            /* Smaller, responsive font size */
+            color: var(--color-primary);
+            /* Set the desired color for the small text */
+            font-weight: var(--font-weight-normal);
+            /* Make it stand out */
+            z-index: 2;
+            /* Ensure it's on top of the background text */
+        }
 
         .back-dark.animate::after {
             animation: swing-in-bottom-fwd 1.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
@@ -502,7 +522,7 @@
 
             .footer-lite {
                 justify-content: start;
-                padding: 15px;
+                padding: 15px 30px;
             }
 
             .icon-section {
@@ -572,7 +592,7 @@
             }
 
             .footer-lite {
-                padding: 15px 5px;
+                padding: 15px 35px;
             }
 
             .icon-section {
@@ -700,7 +720,7 @@
 
             .footer-lite {
                 justify-content: start;
-                padding: 15px;
+                padding: 15px 30px;
             }
 
             .icon-section {
@@ -1132,18 +1152,15 @@
             <div class="col-lg-7 col-12"><img style="width: 100%; height: auto;"
                     src="https://cdn.shopify.com/s/files/1/0795/1813/8714/files/BIke_Evolution-30_1_1.png?v=1735557658"
                     alt=""></div>
-            <!-- Small Banner Images - Occupying 4/12 Columns on Larger Screens -->
             <div class="col-lg-5 col-12">
                 <div class="column-grid">
                     <div class="back-dark">
-                        <span class="background-text" style="color: var(--color-light);">SPECTRALITE</span>
+                        <span class="background-text" style="color: transparent; 
+                        -webkit-text-stroke: 0.3px #f2f2f2;
+                        opacity: 0.3;">
+                            SPECTRALITE</span>
                         <h2 class="foreground-text" style="color: var(--color-light);">SPECTRALITE</h2>
                     </div>
-                    
-            <!-- <div class="text-container">
-                <span class="background-text">SPECTRALITE</span>
-                <h2 class="foreground-text">SPECTRALITE</h2>
-            </div> -->
                     <div style="margin-bottom: 0 !important;"><img style="width: 100%; height: 100%; object-fit: cover;"
                             src="https://cdn.shopify.com/s/files/1/0795/1813/8714/files/f116763136_ftyp_1.png?v=1735557656"
                             alt=""></div>
